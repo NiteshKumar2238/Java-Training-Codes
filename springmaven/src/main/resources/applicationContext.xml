@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+  
+ <bean id="empBean" class="model.Employee" scope="singleton">
+ 	<constructor-arg type="String"  value="Nitesh" /><!-- constructor dependency injection -->
+ 	<constructor-arg type="device"  ref="laptopDevice" /><!-- wiring -->
+ 	<property name="id" value="1" />
+ 	<!--  <property name="device" ref="LaptopDevice"/> --><!-- setter dependency injection -->
+ </bean>
+ 
+ <bean id="empBean1" class="model.Employee" autowire="byName">
+ 	<property name="name" value="Disha" />
+ 	<property name="id" value="2" />
+ </bean>
+ 
+ <bean id="laptopDevice" class="model.Employee">
+ 	<property name="type" value="Laptop" />
+ 	<property name="modelNum" value="LT345" />
+ </bean>
+</beans>
